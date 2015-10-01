@@ -15,7 +15,17 @@
 //		          libaries.  I tried the mean.io stack but like
 //		          most things written by "bubbly, young and dynamic"
 //		          coders it was BIG, FAY, UGLY and CRAP.
+//		          Soooo, as usual, roll my own in a 100th of the time it
+//		          takes just to install and look after that new-age
+//		          bollocks.
 
 
 
+var app = angular.module('meanNews', []);           // this is named in the html declaration
+
+app.controller('mainControl', [                     // just the one controller for now
+    '$scope',
+    function($scope) {                              // and only one function to test the MEAN stack
+        $scope.test = "Hello little MEAN app!";
+}]);
 
