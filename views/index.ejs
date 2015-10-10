@@ -2,7 +2,7 @@
 <!--
 ## CAPTAIN SLOG
 ## vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
-## File         : index.html
+## File         : index.ejs
 ## System       : mean-app
 ## Date         : Oct 2nd 2015
 ## Author       : Mark Addinall
@@ -22,7 +22,7 @@
 
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-        <script src="app.js"></script>
+        <script src="/javascripts/angularApp.js"></script>
 
         <style> .glyphicon-thumbs-up { cursor:pointer } </style>
     </head>
@@ -109,6 +109,20 @@
             {{comment.body}}
         </span>
     </div>
+
+    <form data-ng-submit="addComment()"
+        style="margin-top:30px;">
+        <h3>Add a new comment</h3>
+
+        <div class="form-group">
+            <input type="text"
+            class="form-control"
+            placeholder="Comment"
+            data-ng-model="body"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+
 </script>
 
 </body>

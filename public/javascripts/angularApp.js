@@ -1,6 +1,6 @@
 // CAPTAIN SLOG
 // vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
-// File         : app.js 
+// File         : angularApp.js (was app.js) 
 // System       : mean-app
 // Date         : Oct 2nd 2015
 // Author       : Mark Addinall
@@ -16,7 +16,9 @@
 //                most things written by "bubbly, young and dynamic"
 //                coders it was BIG, FAT, UGLY and CRAP.
 //                I put this together from various tutorials and coding BLOGs. 
-
+//
+//                Name change when I tied the Angular and HTML
+//                to nodeJS and Mongo.
 
 
 //--------------------------------------
@@ -115,11 +117,7 @@ app.controller('mainControl', [                     // just the one controller f
 
             $scope.news.push({  title: $scope.title, 
                                 link: $scope.link,
-                                votes: 0,
-                                comments: [
-                                    {author: 'Addinall', body: 'Nice comments!', votes: 0},
-                                    {author: 'DDuck', body: 'QUACK QUACK!',votes: 0}
-                                ]
+                                votes: 0
             });                                      // create new news, no votes
             $scope.title = '';                       // and empty that var for next time
             $scope.link  = '';                       // ditto
@@ -147,6 +145,15 @@ app.controller('postControl', [
     function($scope, $stateParams, posts) {
         $scope.post = items.items[$stateParams.id];         // target one individua; post of a news item list
 
+        $scope.addComment = function(){
+            if($scope.body === '') { return; }
+                $scope.post.comments.push({
+                        body: $scope.body,
+                        author: 'user',
+                        votes: 0
+                      });
+                  $scope.body = '';
+        };
 }]);
 
 
