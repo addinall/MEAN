@@ -14,7 +14,8 @@ stack for the front, mid and back end, and always
 using JSON as the data package WITHOUT pesky add-on
 libaries.  I tried the mean.io stack but like
 most things written by "bubbly, young and dynamic"
-coders it was BIG, FAT, UGLY and CRAP.
+coders it was BIG, FAT, and UGLY. Really, one of them istalled
+51,308 files in my project directory!  Eeeeek!
 
 So, the list of stuff in use includes:
 * HTML5
@@ -32,7 +33,8 @@ So, the list of stuff in use includes:
 
 I trust that is sufficiently "New Age" for y'all?
 
- 
+This is just an on-going showcase of how much time I 
+spend doing R&D all on my very own.
 
 
 
