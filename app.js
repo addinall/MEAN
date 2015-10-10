@@ -1,6 +1,6 @@
 // CAPTAIN SLOG
 // vim: set expandtab tabstop=4 shiftwidth=4 autoindent smartindent:
-// File         : index.html
+// File         : app.js 
 // System       : mean-app
 // Date         : Oct 2nd 2015
 // Author       : Mark Addinall
@@ -15,17 +15,45 @@
 //                libaries.  I tried the mean.io stack but like
 //                most things written by "bubbly, young and dynamic"
 //                coders it was BIG, FAT, UGLY and CRAP.
-//                Soooo, as usual, roll my own in a 100th of the time it
-//                takes just to install and look after that new-age
-//                bollocks.
+//                Soooo, as usual, roll my own.
 
 
-
+//--------------------------------------
 var app = angular.module('meanNews', []);           // this is named in the html declaration
 
 app.controller('mainControl', [                     // just the one controller for now
     '$scope',
-    function($scope) {                              // and only one function to test the MEAN stack
-        $scope.test = "Hello little MEAN app!";
+    function($scope) {                              // scope is the particular area of memory            
+        $scope.header = "MEAN News BLOG!";          // Angular uses for the bi-directional
+        $scope.news = [                             // binding of variables in this new model.
+        {title: 'News Item 1', votes: 5},           // it works rather well for a change.
+        {title: 'News Item 2', votes: 5},
+        {title: 'News Item 3', votes: 2},           // news is our stack of news items
+        {title: 'News Item 4', votes: 1}
+        ];
+        
+        //---------------------------
+        $scope.addNews = function() {
+
+            // add a method to input new bloggies
+    
+            if (!$scope.title || $scope.title === '') {
+                return;                                         // don't need empty news items
+            }
+
+            $scope.news.push({  title: $scope.title, 
+                                link: $scope.link,
+                                votes: 0});                     // create new news, no votes
+            $scope.title = '';                                  // and empty that var for next time
+            $scope.link  = '';                                  // ditto
+        };
+
+        //--------------------------------------
+        $scope.incrementLikes = function(news) {
+
+            // add a LIKE button, fancy up the graphics later
+            
+            news.votes += 1;
+        };
 }]);
 
