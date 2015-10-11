@@ -27,7 +27,6 @@ var app = angular.module('meanNews', ['ui.router']);    // this is named in the 
 
 
 //----------
-app.config([
 
     // we are using ui-router so we need to configure it.
     // we will use the angular method config to set up
@@ -43,6 +42,7 @@ app.config([
     // caught up with me yet again!
     // http://www.flsc.com.au/
 
+app.config([
     '$stateProvider',
     '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
@@ -52,17 +52,14 @@ app.config([
                 url: '/home',                           // obvioisly change to reflect the
                 templateUrl: '/home.html',              // home state of the target machine
                 controller: 'mainControl'               // environment
-        });
-
-
-        $stateProvider                                  // OK.  now the home is working we
+        })
             .state('posts', {                           // will introduce a postings 'page'.
                 url: '/posts{id}',                      // {id} is bracketed because it is
                 templateUrl: '/posts.html',             // a route parameter we will feed
                 controller: 'postControl'               // to the controller.  This is part
         });                                             // of the CRUD/REST strategy
-
-        $urlRouterProvider.otherwise('home');           // if we don't get a valid url, go HOME
+        
+        $urlRouterProvider.otherwise('home');           // if we don't get a valid url, go HOMuE
 }]);
 
 
@@ -133,18 +130,18 @@ app.controller('mainControl', [                     // just the one controller f
 }]);
 
 
-//-----------------------------
-app.controller('postControl', [
 
     // now for a controller that will take care of our 
     // view posting page
 
+//-----------------------------
+app.controller('postControl', [
     '$scope',
     '$stateParams',
-    '$posts',
-    function($scope, $stateParams, posts) {
+    'items',
+    function($scope, $stateParams, items) {
         $scope.post = items.items[$stateParams.id];         // target one individua; post of a news item list
-
+        alert($scope.post);
         $scope.addComment = function(){
             if($scope.body === '') { return; }
                 $scope.post.comments.push({
