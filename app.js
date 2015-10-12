@@ -1,3 +1,6 @@
+// Mark Addinall DID NOT write this messy stuff
+// Have a look in public for my stuff
+//
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
