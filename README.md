@@ -33,8 +33,7 @@ So, the list of stuff in use includes:
 
 I trust that is sufficiently "New Age" for y'all?
 
-This is just an on-going showcase of how much time I 
-spend doing R&D all on my very own.
+On going R&D creating software tools for royalty!
 
 
 
